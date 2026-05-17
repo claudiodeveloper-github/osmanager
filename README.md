@@ -15,16 +15,16 @@ O sistema permite abrir, acompanhar e encerrar ordens de serviço, gerenciar cli
 ##  Tecnologias Utilizadas
 
 | Tecnologia | Finalidade |
-|---|---|
-| Java 17 | Linguagem principal |
-| Spring Boot 3.2.5 | Framework base |
-| Spring Data JPA + Hibernate | Persistência e ORM |
-| Spring Security | Autenticação e autorização |
-| MySQL 8 | Banco de dados relacional |
-| Thymeleaf | Interface web (templates HTML) |
-| Lombok | Redução de código repetitivo |
-| OpenPDF | Geração de relatórios em PDF |
-| Bootstrap 5 | Estilização da interface |
+| :--- | :--- |
+| ☕ **Java 17** | Linguagem principal |
+| 🍃 **Spring Boot 3.2.5** | Framework base |
+| 🗄️ **Spring Data JPA** | Persistência e ORM |
+| 🔒 **Spring Security** | Autenticação e autorização |
+| 🐬 **MySQL 8** | Banco de dados relacional |
+| 🎨 **Thymeleaf** | Interface web (templates HTML) |
+| 🦎 **Lombok** | Redução de código repetitivo |
+| 📄 **OpenPDF** | Geração de relatórios em PDF |
+| 🖌️ **Bootstrap 5** | Estilização da interface |
 
 ---
 
