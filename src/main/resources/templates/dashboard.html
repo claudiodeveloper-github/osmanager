@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - OS Manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f0f2f5;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 240px;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: #1f2937;
+            color: white;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-brand {
+            padding: 24px 20px 16px;
+            border-bottom: 1px solid #374151;
+        }
+
+        .sidebar-brand h4 {
+            color: #fff;
+            font-weight: 700;
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .sidebar-brand small {
+            color: #9ca3af;
+            font-size: 0.72rem;
+        }
+
+        .sidebar nav {
+            flex: 1;
+            padding: 12px 0;
+        }
+
+        .sidebar a {
+            color: #cbd5e1;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 20px;
+            font-size: 0.9rem;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: #2563eb;
+            color: white;
+        }
+
+        .sidebar a i {
+            font-size: 1rem;
+            width: 18px;
+        }
+
+        .sidebar-footer {
+            padding: 16px 20px;
+            border-top: 1px solid #374151;
+        }
+
+        .sidebar-footer a {
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-footer a:hover {
+            color: #ef4444;
+        }
+
+        /* CONTENT */
+        .content {
+            margin-left: 240px;
+            padding: 28px 32px;
+            min-height: 100vh;
+        }
+
+        .page-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 24px;
+        }
+
+        /* CARDS DE INDICADORES */
+        .stat-card {
+            border: none;
+            border-radius: 14px;
+            padding: 24px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.12);
+        }
+
+        .stat-card .bg-icon {
+            position: absolute;
+            right: -10px;
+            bottom: -10px;
+            font-size: 5rem;
+            opacity: 0.15;
+        }
+
+        .stat-card .label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            margin-bottom: 8px;
+        }
+
+        .stat-card .number {
+            font-size: 2.4rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+
+        .stat-card .sub {
+            font-size: 0.78rem;
+            opacity: 0.75;
+            margin-top: 6px;
+        }
+
+        .card-azul    { background: linear-gradient(135deg, #2563eb, #1d4ed8); }
+        .card-verde   { background: linear-gradient(135deg, #16a34a, #15803d); }
+        .card-amarelo { background: linear-gradient(135deg, #d97706, #b45309); }
+        .card-roxo    { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+
+        /* CARD BOAS-VINDAS */
+        .welcome-card {
+            background: white;
+            border: none;
+            border-radius: 14px;
+            padding: 28px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.07);
+            margin-top: 28px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .welcome-icon {
+            width: 56px;
+            height: 56px;
+            background: #eff6ff;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: #2563eb;
+            flex-shrink: 0;
+        }
+
+        .welcome-card h5 {
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 4px;
+        }
+
+        .welcome-card p {
+            color: #6b7280;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* ATALHOS RÁPIDOS */
+        .quick-links {
+            margin-top: 28px;
+        }
+
+        .quick-links h6 {
+            font-weight: 700;
+            color: #374151;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 14px;
+        }
+
+        .quick-link-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 18px;
+            background: white;
+            border: none;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #374151;
+            font-size: 0.88rem;
+            font-weight: 500;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+            transition: transform 0.15s, box-shadow 0.15s;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .quick-link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            color: #2563eb;
+        }
+
+        .quick-link-btn i {
+            font-size: 1.1rem;
+            color: #2563eb;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <div class="sidebar-brand">
+        <h4><i class="bi bi-gear-fill text-primary"></i> OS Manager</h4>
+        <small>Gerenciamento de Serviços</small>
+    </div>
+
+    <nav>
+        <a href="/dashboard" class="active"><i class="bi bi-speedometer2"></i> Dashboard</a>
+        <a href="/os"><i class="bi bi-clipboard-data"></i> Ordens de Serviço</a>
+        <a href="/clientes"><i class="bi bi-people"></i> Clientes</a>
+        <a href="/equipamentos"><i class="bi bi-tools"></i> Equipamentos</a>
+    </nav>
+
+    <div class="sidebar-footer">
+        <a href="/logout"><i class="bi bi-box-arrow-right"></i> Sair</a>
+    </div>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+    <div class="page-title">
+        <i class="bi bi-speedometer2 me-2 text-primary"></i>Dashboard
+    </div>
+
+    <!-- ✅ CARDS COM DADOS REAIS DO BANCO (corrigido — sem valores hardcoded) -->
+    <div class="row g-3">
+
+        <div class="col-md-3">
+            <div class="stat-card card-azul">
+                <div class="label"><i class="bi bi-clipboard me-1"></i>OS Abertas</div>
+                <div class="number" th:text="${osAbertas}">0</div>
+                <div class="sub">Aguardando atendimento</div>
+                <i class="bi bi-clipboard bg-icon"></i>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="stat-card card-verde">
+                <div class="label"><i class="bi bi-check-circle me-1"></i>Finalizadas</div>
+                <div class="number" th:text="${osFinalizadas}">0</div>
+                <div class="sub">Serviços concluídos</div>
+                <i class="bi bi-check-circle bg-icon"></i>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="stat-card card-amarelo">
+                <div class="label"><i class="bi bi-people me-1"></i>Clientes</div>
+                <div class="number" th:text="${totalClientes}">0</div>
+                <div class="sub">Cadastrados no sistema</div>
+                <i class="bi bi-people bg-icon"></i>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="stat-card card-roxo">
+                <div class="label"><i class="bi bi-tools me-1"></i>Equipamentos</div>
+                <div class="number" th:text="${totalEquipamentos}">0</div>
+                <div class="sub">Registrados no sistema</div>
+                <i class="bi bi-tools bg-icon"></i>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- BOAS-VINDAS -->
+    <div class="welcome-card">
+        <div class="welcome-icon">
+            <i class="bi bi-gear-fill"></i>
+        </div>
+        <div>
+            <h5>Bem-vindo ao OS Manager</h5>
+            <p>Sistema de gerenciamento de ordens de serviço com controle de clientes, equipamentos, status e geração de relatórios em PDF.</p>
+        </div>
+    </div>
+
+    <!-- ATALHOS RÁPIDOS -->
+    <div class="quick-links">
+        <h6>Atalhos rápidos</h6>
+        <div class="row g-2">
+            <div class="col-md-3">
+                <a href="/os/nova" class="quick-link-btn">
+                    <i class="bi bi-plus-circle"></i> Nova OS
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="/clientes/novo" class="quick-link-btn">
+                    <i class="bi bi-person-plus"></i> Novo Cliente
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="/os" class="quick-link-btn">
+                    <i class="bi bi-list-ul"></i> Ver todas as OS
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a href="/clientes" class="quick-link-btn">
+                    <i class="bi bi-people"></i> Ver Clientes
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
