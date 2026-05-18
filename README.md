@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="banner-osmanager.png" alt="OS Manager Banner" width="100%">
+</p>
+
+<br>
+
 # OS Manager
 
 Sistema de gerenciamento de ordens de serviço desenvolvido com **Java** e **Spring Boot 3**, criado como projeto prático durante minha formação como desenvolvedor backend.
