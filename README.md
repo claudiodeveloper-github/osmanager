@@ -1,3 +1,9 @@
+<p align="center">
+  <img src="banner-osmanager.png" alt="OS Manager Banner" width="100%">
+</p>
+
+<br>
+
 # OS Manager
 
 Sistema de gerenciamento de ordens de serviço desenvolvido com **Java** e **Spring Boot 3**, criado como projeto prático durante minha formação como desenvolvedor backend.
@@ -15,16 +21,16 @@ O sistema permite abrir, acompanhar e encerrar ordens de serviço, gerenciar cli
 ##  Tecnologias Utilizadas
 
 | Tecnologia | Finalidade |
-|---|---|
-| Java 17 | Linguagem principal |
-| Spring Boot 3.2.5 | Framework base |
-| Spring Data JPA + Hibernate | Persistência e ORM |
-| Spring Security | Autenticação e autorização |
-| MySQL 8 | Banco de dados relacional |
-| Thymeleaf | Interface web (templates HTML) |
-| Lombok | Redução de código repetitivo |
-| OpenPDF | Geração de relatórios em PDF |
-| Bootstrap 5 | Estilização da interface |
+| :--- | :--- |
+| ☕ **Java 17** | Linguagem principal |
+| 🍃 **Spring Boot 3.2.5** | Framework base |
+| 🗄️ **Spring Data JPA** | Persistência e ORM |
+| 🔒 **Spring Security** | Autenticação e autorização |
+| 🐬 **MySQL 8** | Banco de dados relacional |
+| 🎨 **Thymeleaf** | Interface web (templates HTML) |
+| 🦎 **Lombok** | Redução de código repetitivo |
+| 📄 **OpenPDF** | Geração de relatórios em PDF |
+| 🖌️ **Bootstrap 5** | Estilização da interface |
 
 ---
 
