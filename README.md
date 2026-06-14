@@ -175,7 +175,7 @@ Este projeto foi desenvolvido para fins de aprendizado e portfólio. Ainda há p
 - [ ] Filtro de OS por status e data
 - [ ] Deploy em nuvem (Railway ou Render)
 - [ ] Documentação da API com Swagger
-
+- [ ] Filtro de OS por status e data <!-- TODO: Implementar filtro de OS por status e data #1 -->
 ---
 
 ##  Autor
