@@ -37,6 +37,7 @@ O sistema permite abrir, acompanhar e encerrar ordens de serviço, gerenciar cli
 ## Estrutura do Projeto
 
 ```
+
 src/main/java/com/osmanager/
 ├── config/         → Configurações gerais (redirecionamentos)
 ├── controller/     → Controladores MVC e endpoints REST
@@ -44,8 +45,8 @@ src/main/java/com/osmanager/
 ├── entity/         → Entidades JPA (tabelas do banco)
 ├── repository/     → Acesso ao banco de dados
 ├── security/       → Configuração de login e autorização
-├── service/        → Regras de negócio
-└── util/           → Utilitários gerais
+└── service/        → Regras de negócio
+
 ```
 
 ---
@@ -168,6 +169,7 @@ Ao marcar como `FINALIZADA`, a data de saída é registrada automaticamente.
 
 Este projeto foi desenvolvido para fins de aprendizado e portfólio. Ainda há pontos que pretendo evoluir:
 
+- [x] Validações com Bean Validation nas entidades
 - [ ] Testes unitários com JUnit e Mockito
 - [ ] Paginação na listagem de OS
 - [ ] Filtro de OS por status e data
