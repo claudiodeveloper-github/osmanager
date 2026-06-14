@@ -177,6 +177,8 @@ Este projeto foi desenvolvido para fins de aprendizado e portfólio. Ainda há p
 - [ ] Documentação da API com Swagger
 - [ ] Filtro de OS por status e data <!-- TODO: Implementar filtro de OS por status e data #1 -->
 - [ ] Paginação na listagem de OS  <!-- TODO: Adicionar paginação na listagem de OS #2 -->
+- [ ] Testes unitários com JUnit e Mockito <!-- TODO: Adicionar testes unitários nos services #7 -->
+- [ ] Deploy na nuvem com Railway <!-- TODO: Deploy na nuvem com Railway #9 -->
 ---
 
 ##  Autor
