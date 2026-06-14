@@ -176,6 +176,7 @@ Este projeto foi desenvolvido para fins de aprendizado e portfólio. Ainda há p
 - [ ] Deploy em nuvem (Railway ou Render)
 - [ ] Documentação da API com Swagger
 - [ ] Filtro de OS por status e data <!-- TODO: Implementar filtro de OS por status e data #1 -->
+- [ ] Paginação na listagem de OS <!-- TODO: Adicionar paginação na listagem de OS #2 -->
 ---
 
 ##  Autor
