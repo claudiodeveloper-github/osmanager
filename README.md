@@ -31,6 +31,7 @@ O sistema permite abrir, acompanhar e encerrar ordens de serviço, gerenciar cli
 | 🦎 **Lombok** | Redução de código repetitivo |
 | 📄 **OpenPDF** | Geração de relatórios em PDF |
 | 🖌️ **Bootstrap 5** | Estilização da interface |
+|    **OpenPDF | Geração de relatórios em PDF |
 
 ---
 
@@ -62,6 +63,7 @@ src/main/java/com/osmanager/
 - [x] Dashboard com indicadores em tempo real
 - [x] Exportação de OS em **PDF**
 - [x] Interface responsiva com Bootstrap 5
+- [x] Exportação de Ordens de Serviço em PDF (via OpenPDF)
 
 ---
 
