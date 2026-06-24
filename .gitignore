@@ -50,3 +50,6 @@ logs/
 # Sistema operacional
 .DS_Store
 Thumbs.db
+
+# Senhas e configurações sensíveis
+src/main/resources/application.properties
