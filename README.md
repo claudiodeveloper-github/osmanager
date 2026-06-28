@@ -98,20 +98,29 @@ CREATE DATABASE osmanager;
 
 ---
 
-### 3. Configurar o `application.properties`
+### 3. Configurar o application.properties
+Crie ou edite o arquivo em src/main/resources/application.properties com as configurações abaixo.
 
-Edite o arquivo em `src/main/resources/application.properties`:
+Atenção: Por questões de segurança, substitua seu_usuario e sua_senha pelas credenciais do seu banco de dados MySQL local. Nunca compartilhe o arquivo com suas senhas reais no GitHub.
 
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/osmanager
+Properties
+
+# BANCO DE DADOS
+
+```
+spring.datasource.url=jdbc:mysql://localhost:3306/osmanager?useSSL=false&serverTimezone=UTC
 spring.datasource.username=seu_usuario
 spring.datasource.password=sua_senha
 
+# JPA / HIBERNATE
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect
 
+# SERVIDOR
 server.port=8080
+
 ```
 
 ---
